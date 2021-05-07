@@ -1,7 +1,7 @@
 import socket
 import sys
 import os
-
+import cipher
 
 #change IP and Port as needed
 IP = "127.0.0.1"
@@ -18,7 +18,7 @@ f = open(file_name,'rb')
 data=f.read(1024)
 while data:
 	#send
-	clientsocket.send(data)
+	clientsocket.send(encrypt(data))
 	data=f.read(1024)
 clientsocket.close()
 print("File transfer success!")
